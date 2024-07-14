@@ -14,7 +14,7 @@ export async function get_followers(req, res) {
   try {
     logger.info("new-request", req);
 
-    const { userId } = req.params;
+    const { userId } = req.query;
     if( !userId ) {
       return badRequest(toJson({
         error: "userId is required",

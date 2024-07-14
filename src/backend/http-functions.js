@@ -10,6 +10,9 @@ const HEADERS_JSON = {
 
 const logger = new Logger("http-functions");
 
+/**
+ * https://sharekart.salman2301.com/_functions/followers?userId=59dc88d5-c871-4d52-80c1-1e432316b7b4
+ */
 export async function get_followers(req, res) {
   try {
     logger.info("new-request", req);

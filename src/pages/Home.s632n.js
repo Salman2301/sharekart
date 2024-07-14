@@ -1,3 +1,4 @@
+// This is a duplicate of the Home.c1dmp.js file
 import wixUsers from "wix-users";
 import wixData from "wix-data";
 import wixLocation from "wix-location";

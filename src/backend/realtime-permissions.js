@@ -6,7 +6,7 @@ permissionsRouter.default((channel, subscriber) => {
 });
 
 permissionsRouter.add(CHANNEL.new_post, (channel, subscriber) => {
-    return  { read: true };
+  return { read: true };
 });
 
 export function realtime_check_permission(channel, subscriber) {

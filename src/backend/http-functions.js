@@ -16,7 +16,7 @@ export async function get_followers(req, res) {
 
     const { userId } = req.params;
     if( !userId ) {
-      return badRequest(res({
+      return badRequest(toJson({
         error: "userId is required",
       }));
     }
@@ -24,12 +24,12 @@ export async function get_followers(req, res) {
     const user = await wixData.get(DATABASE.user_info, userId);
     
     if (!user) {
-      return badRequest(res({
+      return badRequest(toJson({
         error: "user not found",
       }));
     }
 
-    return ok(res({
+    return ok(toJson({
       userId,
       followers: user.followerCount,
     }));
@@ -37,14 +37,14 @@ export async function get_followers(req, res) {
   catch (e) {
     logger.error("new-request-error", req, e);
     
-    return serverError(res({
+    return serverError(toJson({
       error: e.message,
     }));
   }
 }
 
 // helper func
-function res(body) {
+function toJson(body) {
   return {
     body: JSON.stringify(body),
     headers: HEADERS_JSON,
